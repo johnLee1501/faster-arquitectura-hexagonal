@@ -1,0 +1,1 @@
+select count(1) from compra where id = :id and fecha_compra = :fecha
