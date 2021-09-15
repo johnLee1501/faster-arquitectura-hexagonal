@@ -18,7 +18,7 @@ public class Compra {
     private static final String CAMPO_LONGITUD_MAXIMA = "La longitud de el campo %s no puede superar los %s caracteres";
     private static final String VALOR_PRODUCTO_MIN_MAX = "El valor del producto no puede ser menor a %s ni mayor a %s";
     private static final String El_CAMPO_CIUDAD_DEBE_SER_ALFANUMERICO = "El campo ciudad debe ser alfanumérico";
-    private static final String El_CAMPO_CODIGO_PRODUCTO_DEBE_SER_ALFANUMERICO = "El campo producto debe ser alfanumérico";
+    private static final String El_CAMPO_CODIGO_PRODUCTO_DEBE_SER_ALFANUMERICO = "El campo codigoProducto debe ser alfanumérico";
     private static final String TIPO_USUARIO_NO_PERMITIDO = "El tipo de usuario no está permitido";
 
 
