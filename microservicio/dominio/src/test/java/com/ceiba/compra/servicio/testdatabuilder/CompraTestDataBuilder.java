@@ -13,6 +13,7 @@ public class CompraTestDataBuilder {
     private String codigoProducto;
     private int valorProducto;
     private int tipoUsuario;
+    private LocalDate fechaEntrega;
 
     public CompraTestDataBuilder() {
         identificadorUsuario = 1091677862L;
@@ -86,6 +87,7 @@ public class CompraTestDataBuilder {
                 ciudad,
                 codigoProducto,
                 valorProducto,
-                tipoUsuario);
+                tipoUsuario,
+                fechaEntrega);
     }
 }
