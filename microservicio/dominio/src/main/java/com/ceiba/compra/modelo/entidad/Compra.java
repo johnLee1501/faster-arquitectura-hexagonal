@@ -17,8 +17,8 @@ public class Compra {
     private static final String IDENTIFICACION_USUARIO_LONGITUD = "La identificación del usuario debe tener una longitud de entre 6 y 10 dígitos";
     private static final String CAMPO_LONGITUD_MAXIMA = "La longitud de el campo %s no puede superar los %s caracteres";
     private static final String VALOR_PRODUCTO_MIN_MAX = "El valor del producto no puede ser menor a %s ni mayor a %s";
-    private static final String El_CAMPO_CIUDAD_DEBE_SER_ALFANUMERICO = "El campo ciudad debe ser alfanumérico";
-    private static final String El_CAMPO_CODIGO_PRODUCTO_DEBE_SER_ALFANUMERICO = "El campo codigoProducto debe ser alfanumérico";
+    private static final String CIUDAD_SOLO_ALFANUMERICO = "El campo ciudad debe ser alfanumérico";
+    private static final String CODIGO_PRODUCTO_SOLO_ALFANUMERICO = "El campo codigoProducto debe ser alfanumérico";
     private static final String TIPO_USUARIO_NO_PERMITIDO = "El tipo de usuario no está permitido";
 
 
@@ -42,8 +42,8 @@ public class Compra {
         validadLongitud(ciudad, 1, 21, String.format(CAMPO_LONGITUD_MAXIMA, "ciudad", 21));
         validadLongitud(codigoProducto, 1, 6, String.format(CAMPO_LONGITUD_MAXIMA, "codigoProducto", 6));
         validarMenorMayor(valorProducto, 1L, 500000L, String.format(VALOR_PRODUCTO_MIN_MAX, 1, 5000000));
-        validarAlfanumerico(ciudad, El_CAMPO_CIUDAD_DEBE_SER_ALFANUMERICO);
-        validarAlfanumerico(codigoProducto, El_CAMPO_CODIGO_PRODUCTO_DEBE_SER_ALFANUMERICO);
+        validarAlfanumerico(ciudad, CIUDAD_SOLO_ALFANUMERICO);
+        validarAlfanumerico(codigoProducto, CODIGO_PRODUCTO_SOLO_ALFANUMERICO);
         validarRegex(String.valueOf(tipoUsuario), "(1|2|3)", TIPO_USUARIO_NO_PERMITIDO);
 
         this.id = id;
