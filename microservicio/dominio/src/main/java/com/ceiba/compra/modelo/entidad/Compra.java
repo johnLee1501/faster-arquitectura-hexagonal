@@ -20,7 +20,6 @@ public class Compra {
     private static final String El_CAMPO_DEBE_SER_ALFANUMERICO = "El campo %s debe ser alfanumérico";
     private static final String TIPO_USUARIO_NO_PERMITIDO = "El tipo de usuario no está permitido";
 
-    private static final int LONGITUD_MINIMA_CLAVE = 4;
 
     private Long id;
     private Long identificadorUsuario;
@@ -32,7 +31,7 @@ public class Compra {
     private LocalDate fechaCompra;
     private LocalDate fechaEntrega;
 
-    public Compra(Long id, Long identificadorUsuario, String direccion, String ciudad, String codigoProducto, int valorProducto, int tipoUsuario, LocalDate fechaCompra, LocalDate fechaEntrega) {
+    public Compra(Long id, Long identificadorUsuario, String direccion, String ciudad, String codigoProducto, int valorProducto, int tipoUsuario) {
         validarObligatorio(identificadorUsuario, SE_DEBE_INGRESAR_LA_IDENTIFICACION_USUARIO);
         validarObligatorio(direccion, SE_DEBE_INGRESAR_LA_DIRECCION);
         validarObligatorio(ciudad, SE_DEBE_INGRESAR_LA_CIUDAD);
@@ -54,7 +53,6 @@ public class Compra {
         this.valorProducto = valorProducto;
         this.tipoUsuario = tipoUsuario;
         this.fechaCompra = LocalDate.now();
-        this.fechaEntrega = fechaEntrega;
     }
 
     public void asignarFechaEntrega(LocalDate fechaEntrega) {

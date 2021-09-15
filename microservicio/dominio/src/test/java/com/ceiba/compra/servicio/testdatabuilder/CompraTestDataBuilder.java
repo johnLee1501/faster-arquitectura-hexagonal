@@ -13,8 +13,6 @@ public class CompraTestDataBuilder {
     private String codigoProducto;
     private int valorProducto;
     private int tipoUsuario;
-    private LocalDate fechaCompra;
-    private LocalDate fechaEntrega;
 
     public CompraTestDataBuilder() {
         identificadorUsuario = 1091677862L;
@@ -23,7 +21,6 @@ public class CompraTestDataBuilder {
         codigoProducto = "25L8G4";
         valorProducto = 100000;
         tipoUsuario = 1;
-        fechaCompra = LocalDate.now();
     }
 
     public CompraTestDataBuilder sinIdentificadorUsuario() {
@@ -89,8 +86,6 @@ public class CompraTestDataBuilder {
                 ciudad,
                 codigoProducto,
                 valorProducto,
-                tipoUsuario,
-                fechaCompra,
-                fechaEntrega);
+                tipoUsuario);
     }
 }
