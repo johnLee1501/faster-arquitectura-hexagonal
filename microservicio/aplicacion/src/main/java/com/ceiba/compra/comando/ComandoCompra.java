@@ -6,9 +6,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Getter
-@Setter
-@NoArgsConstructor
+
 public class ComandoCompra {
 
     private Long id;
@@ -30,6 +28,81 @@ public class ComandoCompra {
         this.valorProducto = valorProducto;
         this.tipoUsuario = tipoUsuario;
         this.fechaCompra = fechaCompra;
+        this.fechaEntrega = fechaEntrega;
+    }
+
+    public ComandoCompra() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Long getIdentificadorUsuario() {
+        return identificadorUsuario;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public String getCodigoProducto() {
+        return codigoProducto;
+    }
+
+    public int getValorProducto() {
+        return valorProducto;
+    }
+
+    public int getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public LocalDate getFechaCompra() {
+        return fechaCompra;
+    }
+
+    public LocalDate getFechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setIdentificadorUsuario(Long identificadorUsuario) {
+        this.identificadorUsuario = identificadorUsuario;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public void setCodigoProducto(String codigoProducto) {
+        this.codigoProducto = codigoProducto;
+    }
+
+    public void setValorProducto(int valorProducto) {
+        this.valorProducto = valorProducto;
+    }
+
+    public void setTipoUsuario(int tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
+
+    public void setFechaCompra(LocalDate fechaCompra) {
+        this.fechaCompra = fechaCompra;
+    }
+
+    public void setFechaEntrega(LocalDate fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
 }
