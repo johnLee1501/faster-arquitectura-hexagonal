@@ -9,7 +9,7 @@ allprojects {
 							"io.springfox:springfox-swagger2:2.9.2"
 						  ]
 	project.ext.apachecommons = [
-									"commons-io:commons-io:2.7",
+									"commons-io:commons-io:2.6",
 									"org.apache.commons:commons-lang3:3.7"
 								]
 	

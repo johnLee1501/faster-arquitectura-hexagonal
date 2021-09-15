@@ -11,19 +11,18 @@ repositories {
 }
 
 dependencies {
-	testImplementation project.ext.junit4
-	testImplementation project.ext.junit5
+
 	testImplementation project.ext.h2
 	testImplementation project.ext.springboottest
-	implementation project.ext.springbootweb
-	implementation project.ext.swagger
+	compile project.ext.springbootweb
+	compile project.ext.swagger
 
-	implementation project.ext.apachecommons
-	implementation project.ext.springbootjdbc
+	compile project.ext.apachecommons
+	compile project.ext.springbootjdbc
 	runtimeOnly project.ext.db
 	testImplementation project.ext.flywaytest
 
-	
+
 	implementation project(':dominio')
 	implementation project(':aplicacion')
 

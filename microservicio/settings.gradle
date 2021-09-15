@@ -4,9 +4,9 @@ include ':infraestructura'
 include ':aplicacion'
 include ':dominio'
 
-include ':comun', 
-		':comun:comun-infraestructura', 
-		':comun:comun-aplicacion', 
+include ':comun',
+		':comun:comun-infraestructura',
+		':comun:comun-aplicacion',
 		':comun:comun-dominio',
 		':comun:comun-test'
 
