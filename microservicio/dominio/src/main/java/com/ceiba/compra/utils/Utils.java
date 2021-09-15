@@ -26,7 +26,7 @@ public class Utils {
     }
 
     private int calcularNumeroDiasEnvio(int tipoUsuario) {
-        int diasEnvio;
+        int diasEnvio = 0;
         switch (tipoUsuario) {
             case USUARIO_NIVEL_1:
                 diasEnvio = ENVIO_NIVEL_1;
@@ -37,8 +37,6 @@ public class Utils {
             case USUARIO_NIVEL_3:
                 diasEnvio = ENVIO_PRIORITARIO;
                 break;
-            default:
-                diasEnvio = 0;
         }
         return diasEnvio;
     }

@@ -14,7 +14,7 @@ import java.util.List;
 public class ServicioCrearCompra {
 
     private static final String CIUDAD_NO_REGISTRADA = "Envios no disponibles para esta ciudad";
-    List<String> ciudades = new ArrayList<String>(Arrays.asList("Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena de Indias", "Cúcuta", "Soledad", "Ibagué"));
+    List<String> ciudades = new ArrayList<>(Arrays.asList("Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena de Indias", "Cúcuta", "Soledad", "Ibagué"));
 
     private final RepositorioCompra repositorioCompra;
     private final Utils utils;
