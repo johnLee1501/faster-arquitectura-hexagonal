@@ -1,6 +1,5 @@
 package com.ceiba.compra.comando;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,7 +8,6 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class ComandoCompra {
 
@@ -22,4 +20,16 @@ public class ComandoCompra {
     private int tipoUsuario;
     private LocalDate fechaCompra;
     private LocalDate fechaEntrega;
+
+    public ComandoCompra(Long id, Long identificadorUsuario, String direccion, String ciudad, String codigoProducto, int valorProducto, int tipoUsuario, LocalDate fechaCompra, LocalDate fechaEntrega) {
+        this.id = id;
+        this.identificadorUsuario = identificadorUsuario;
+        this.direccion = direccion;
+        this.ciudad = ciudad;
+        this.codigoProducto = codigoProducto;
+        this.valorProducto = valorProducto;
+        this.tipoUsuario = tipoUsuario;
+        this.fechaCompra = fechaCompra;
+        this.fechaEntrega = fechaEntrega;
+    }
 }
