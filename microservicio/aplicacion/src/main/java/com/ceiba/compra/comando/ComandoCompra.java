@@ -1,10 +1,8 @@
 package com.ceiba.compra.comando;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+@Generated
 @Getter
 @Setter
 @AllArgsConstructor
