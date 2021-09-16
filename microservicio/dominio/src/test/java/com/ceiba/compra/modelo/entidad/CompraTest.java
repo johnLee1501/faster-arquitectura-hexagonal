@@ -74,9 +74,4 @@ public class CompraTest {
         BasePrueba.assertThrows(compraTestDataBuilder::build, ExcepcionValorInvalido.class, "El campo codigoProducto debe ser alfanumérico");
     }
 
-    @Test
-    public void validarTipoUsuarioValidoTest() {
-        CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().conTipoUsuario(4);
-        BasePrueba.assertThrows(compraTestDataBuilder::build, ExcepcionValorInvalido.class, "El tipo de usuario no está permitido");
-    }
 }

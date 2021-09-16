@@ -17,7 +17,6 @@ public class Compra {
     private static final String VALOR_PRODUCTO_MIN_MAX = "El valor del producto no puede ser menor a %s ni mayor a %s";
     private static final String CIUDAD_SOLO_ALFANUMERICO = "El campo ciudad debe ser alfanumérico";
     private static final String CODIGO_PRODUCTO_SOLO_ALFANUMERICO = "El campo codigoProducto debe ser alfanumérico";
-    private static final String TIPO_USUARIO_NO_PERMITIDO = "El tipo de usuario no está permitido";
 
 
     private Long id;
@@ -42,7 +41,6 @@ public class Compra {
         validarMenorMayor(valorProducto, 1L, 500000L, String.format(VALOR_PRODUCTO_MIN_MAX, 1, 5000000));
         validarAlfanumerico(ciudad, CIUDAD_SOLO_ALFANUMERICO);
         validarAlfanumerico(codigoProducto, CODIGO_PRODUCTO_SOLO_ALFANUMERICO);
-        validarRegex(String.valueOf(tipoUsuario), "(1|2|3)", TIPO_USUARIO_NO_PERMITIDO);
 
         this.identificadorUsuario = identificadorUsuario;
         this.direccion = direccion;

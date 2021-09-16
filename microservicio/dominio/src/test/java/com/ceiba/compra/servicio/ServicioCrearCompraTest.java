@@ -74,6 +74,15 @@ public class ServicioCrearCompraTest {
         BasePrueba.assertThrows(() -> servicioCrearCompra.ejecutar(compra), ExcepcionCiudadNoRegistrada.class, "Envios no disponibles para esta ciudad");
     }
 
+    @Test
+    public void validarTipoDeUsuarioIncorrectoTest() {
+        Compra compra = new CompraTestDataBuilder().conTipoUsuario(4).build();
+        RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);
+        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra);
+        // act - assert
+        BasePrueba.assertThrows(() -> servicioCrearCompra.ejecutar(compra), ExcepcionValorInvalido.class, "El tipo de usuario no está permitido");
+    }
+
 
     private LocalDate sumarDiasSinFinesDeSemana(int dias) {
         LocalDate fechaActual = LocalDate.now();

@@ -48,12 +48,10 @@ public class ServicioCrearCompra {
     }
 
     private LocalDate calcularFechaEntrega(int tipoUsuario, int valorProducto) {
-        int diasDuracionEnvio;
+        int diasDuracionEnvio = calcularNumeroDiasEnvio(tipoUsuario);
 
         if (valorProducto >= VALOR_ENVIO_PRIORITARIO) {
             diasDuracionEnvio = ENVIO_PRIORITARIO;
-        } else {
-            diasDuracionEnvio = calcularNumeroDiasEnvio(tipoUsuario);
         }
         return sumarDiasSinFinesDeSemana(diasDuracionEnvio);
     }
