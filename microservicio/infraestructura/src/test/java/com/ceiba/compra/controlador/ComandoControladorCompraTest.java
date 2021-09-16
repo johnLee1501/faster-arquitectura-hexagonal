@@ -2,6 +2,7 @@ package com.ceiba.compra.controlador;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.compra.comando.ComandoCompra;
+import com.ceiba.compra.puerto.dao.DaoCompra;
 import com.ceiba.compra.servicio.testdatabuilder.ComandoCompraTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
@@ -28,6 +29,9 @@ public class ComandoControladorCompraTest {
     @Autowired
     private MockMvc mocMvc;
 
+    @Autowired
+    private DaoCompra daoCompra;
+
     @Test
     public void crear() throws Exception {
         // arrange
@@ -39,6 +43,14 @@ public class ComandoControladorCompraTest {
                         .content(objectMapper.writeValueAsString(compra)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 2}"));
+//                .andDo(
+//                        resultValorar -> {
+//                             updateJugadorResponse = daoCompra.listarPorUsuario(compra.getIdentificadorUsuario());
+//                            assertEquals(1116745412, updateJugadorResponse.getInt("numeroIdentificacion"));
+//                            assertEquals("100000000.00", updateJugadorResponse.getString("valorizacion"));
+//                            assertEquals("2021-04-13 00:00:00.0", updateJugadorResponse.getString("fechaValorizacion"));
+//                        }
+//                ); ;
     }
 
 

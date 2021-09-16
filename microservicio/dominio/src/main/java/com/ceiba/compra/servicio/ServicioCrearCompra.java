@@ -32,11 +32,10 @@ public class ServicioCrearCompra {
         compra.asignarFechaEntrega(fechaEntregaEnvio);
         return this.repositorioCompra.crear(compra);
     }
-    public void esCiudadValida(String ciudad) {
+    private void esCiudadValida(String ciudad) {
         boolean existe = ciudades.contains(ciudad);
         if (!existe) {
             throw new ExcepcionCiudadNoRegistrada(CIUDAD_NO_REGISTRADA);
         }
     }
-
 }

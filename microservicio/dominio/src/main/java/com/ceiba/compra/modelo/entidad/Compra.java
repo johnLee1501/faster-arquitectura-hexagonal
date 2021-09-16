@@ -32,7 +32,7 @@ public class Compra {
     private LocalDate fechaCompra;
     private LocalDate fechaEntrega;
 
-    public Compra(Long id, Long identificadorUsuario, String direccion, String ciudad, String codigoProducto, int valorProducto, int tipoUsuario, LocalDate fechaEntrega) {
+    public Compra(Long identificadorUsuario, String direccion, String ciudad, String codigoProducto, int valorProducto, int tipoUsuario) {
         validarObligatorio(identificadorUsuario, SE_DEBE_INGRESAR_LA_IDENTIFICACION_USUARIO);
         validarObligatorio(direccion, SE_DEBE_INGRESAR_LA_DIRECCION);
         validarObligatorio(ciudad, SE_DEBE_INGRESAR_LA_CIUDAD);
@@ -46,7 +46,6 @@ public class Compra {
         validarAlfanumerico(codigoProducto, CODIGO_PRODUCTO_SOLO_ALFANUMERICO);
         validarRegex(String.valueOf(tipoUsuario), "(1|2|3)", TIPO_USUARIO_NO_PERMITIDO);
 
-        this.id = id;
         this.identificadorUsuario = identificadorUsuario;
         this.direccion = direccion;
         this.ciudad = ciudad;
@@ -54,7 +53,6 @@ public class Compra {
         this.valorProducto = valorProducto;
         this.tipoUsuario = tipoUsuario;
         this.fechaCompra = LocalDate.now();
-        this.fechaEntrega = fechaEntrega;
     }
 
     public void asignarFechaEntrega(LocalDate fechaEntrega) {

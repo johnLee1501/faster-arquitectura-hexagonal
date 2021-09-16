@@ -1,6 +1,7 @@
 package com.ceiba.compra.servicio.testdatabuilder;
 
 import com.ceiba.compra.modelo.entidad.Compra;
+import org.mockito.cglib.core.Local;
 
 import java.time.LocalDate;
 
@@ -13,15 +14,18 @@ public class CompraTestDataBuilder {
     private String codigoProducto;
     private int valorProducto;
     private int tipoUsuario;
+    private LocalDate fechaCompra;
     private LocalDate fechaEntrega;
 
     public CompraTestDataBuilder() {
+        id = 1L;
         identificadorUsuario = 1091677862L;
         direccion = "Calle 4 #25b32";
         ciudad = "Bogotá";
         codigoProducto = "25L8G4";
         valorProducto = 100000;
         tipoUsuario = 1;
+        fechaCompra = LocalDate.now();
     }
 
     public CompraTestDataBuilder sinIdentificadorUsuario() {
@@ -75,19 +79,13 @@ public class CompraTestDataBuilder {
     }
 
 
-    public CompraTestDataBuilder conId(Long id) {
-        this.id = id;
-        return this;
-    }
-
     public Compra build() {
-        return new Compra(id,
+        return new Compra(
                 identificadorUsuario,
                 direccion,
                 ciudad,
                 codigoProducto,
                 valorProducto,
-                tipoUsuario,
-                fechaEntrega);
+                tipoUsuario);
     }
 }

@@ -28,14 +28,12 @@ public class ComandoCompraTestDataBuilder {
     }
 
     public ComandoCompra build() {
-        return new ComandoCompra(id,
+        return new ComandoCompra(
                 identificadorUsuario,
                 direccion,
                 ciudad,
                 codigoProducto,
                 valorProducto,
-                tipoUsuario,
-                fechaCompra,
-                fechaEntrega);
+                tipoUsuario);
     }
 }

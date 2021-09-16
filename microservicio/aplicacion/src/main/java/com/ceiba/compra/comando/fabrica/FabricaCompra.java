@@ -9,14 +9,12 @@ public class FabricaCompra {
 
     public Compra crear(ComandoCompra comandoCompra) {
         return new Compra(
-                comandoCompra.getId(),
                 comandoCompra.getIdentificadorUsuario(),
                 comandoCompra.getDireccion(),
                 comandoCompra.getCiudad(),
                 comandoCompra.getCodigoProducto(),
                 comandoCompra.getValorProducto(),
-                comandoCompra.getTipoUsuario(),
-                comandoCompra.getFechaEntrega());
+                comandoCompra.getTipoUsuario());
     }
 
 }
