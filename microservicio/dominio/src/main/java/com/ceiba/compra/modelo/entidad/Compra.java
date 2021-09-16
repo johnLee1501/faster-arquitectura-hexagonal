@@ -1,13 +1,11 @@
 package com.ceiba.compra.modelo.entidad;
 
 
-import lombok.Getter;
-
 import java.time.LocalDate;
 
 import static com.ceiba.dominio.ValidadorArgumento.*;
 
-@Getter
+
 public class Compra {
 
     private static final String SE_DEBE_INGRESAR_LA_IDENTIFICACION_USUARIO = "Se debe ingresar la identificación del usuario";
@@ -57,5 +55,41 @@ public class Compra {
 
     public void asignarFechaEntrega(LocalDate fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Long getIdentificadorUsuario() {
+        return identificadorUsuario;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public String getCodigoProducto() {
+        return codigoProducto;
+    }
+
+    public int getValorProducto() {
+        return valorProducto;
+    }
+
+    public int getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public LocalDate getFechaCompra() {
+        return fechaCompra;
+    }
+
+    public LocalDate getFechaEntrega() {
+        return fechaEntrega;
     }
 }
