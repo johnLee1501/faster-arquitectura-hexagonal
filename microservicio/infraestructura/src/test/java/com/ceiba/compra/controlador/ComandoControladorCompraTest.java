@@ -2,6 +2,7 @@ package com.ceiba.compra.controlador;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.compra.comando.ComandoCompra;
+import com.ceiba.compra.modelo.dto.DtoCompra;
 import com.ceiba.compra.puerto.dao.DaoCompra;
 import com.ceiba.compra.servicio.testdatabuilder.ComandoCompraTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,6 +15,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static com.ceiba.BasePrueba.assertThrows;
+import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -42,15 +45,15 @@ public class ComandoControladorCompraTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(compra)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 2}"));
-//                .andDo(
-//                        resultValorar -> {
-//                             updateJugadorResponse = daoCompra.listarPorUsuario(compra.getIdentificadorUsuario());
-//                            assertEquals(1116745412, updateJugadorResponse.getInt("numeroIdentificacion"));
-//                            assertEquals("100000000.00", updateJugadorResponse.getString("valorizacion"));
-//                            assertEquals("2021-04-13 00:00:00.0", updateJugadorResponse.getString("fechaValorizacion"));
-//                        }
-//                ); ;
+                .andExpect(content().json("{'valor': 2}"))
+                 .andDo(
+                        resultValorar -> {
+                            DtoCompra compra1 = daoCompra.obtenerPorId(2L);
+                            assertEquals(1L, compra1.getProductoId());
+                            assertEquals(1, compra1.getProductoId());
+                            assertEquals("Bogotá", compra1.getCiudad());
+                        }
+                );
     }
 
 
@@ -63,6 +66,11 @@ public class ComandoControladorCompraTest {
         mocMvc.perform(delete("/compras/{id}", id)
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(
+                        resultValorar -> {
+                            assertThrows(() -> daoCompra.obtenerPorId(2L), IndexOutOfBoundsException.class, "Index: 0, Size: 0");
+                        }
+                );
     }
 }

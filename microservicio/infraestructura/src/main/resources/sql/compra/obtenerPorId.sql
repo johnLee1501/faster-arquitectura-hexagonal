@@ -1,0 +1,1 @@
+select * from compra where id = :id

@@ -1,4 +1,4 @@
-package com.ceiba.producto;
+package com.ceiba;
 
 import org.junit.Assert;
 
