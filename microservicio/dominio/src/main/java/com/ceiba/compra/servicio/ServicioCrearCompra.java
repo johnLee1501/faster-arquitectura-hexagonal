@@ -9,9 +9,6 @@ import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 
 public class ServicioCrearCompra {
