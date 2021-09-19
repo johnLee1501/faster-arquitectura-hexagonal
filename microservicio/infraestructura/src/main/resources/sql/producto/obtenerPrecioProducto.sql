@@ -1,0 +1,1 @@
+select valor_producto from producto where id = :id

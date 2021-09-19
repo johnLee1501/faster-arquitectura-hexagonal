@@ -27,8 +27,8 @@ public class CompraTest {
     }
 
     @Test
-    public void validarCodigoProductoObligatorioTest() {
-        CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().sinCodigoProducto();
+    public void validarIdProductoObligatorioTest() {
+        CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().sinProductoId();
         BasePrueba.assertThrows(compraTestDataBuilder::build, ExcepcionValorObligatorio.class, "Se debe ingresar el código del producto");
     }
 
@@ -50,17 +50,17 @@ public class CompraTest {
         BasePrueba.assertThrows(compraTestDataBuilder::build, ExcepcionLongitudValor.class, "La longitud de el campo ciudad no puede superar los 21 caracteres");
     }
 
-    @Test
-    public void validarLongitudCodigoProductoUsuarioTest() {
-        CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().conCodigoProducto("1KMDLAS8G");
-        BasePrueba.assertThrows(compraTestDataBuilder::build, ExcepcionLongitudValor.class, "La longitud de el campo codigoProducto no puede superar los 6 caracteres");
-    }
+//    @Test
+//    public void validarLongitudCodigoProductoUsuarioTest() {
+//        CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().conCodigoProducto("1KMDLAS8G");
+//        BasePrueba.assertThrows(compraTestDataBuilder::build, ExcepcionLongitudValor.class, "La longitud de el campo codigoProducto no puede superar los 6 caracteres");
+//    }
 
-    @Test
-    public void validarValorProductoMenorAMayorATest() {
-        CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().conValorProducto(50000000);
-        BasePrueba.assertThrows(compraTestDataBuilder::build, ExcepcionValorInvalido.class, "El valor del producto no puede ser menor a 1 ni mayor a 5000000");
-    }
+//    @Test
+//    public void validarValorProductoMenorAMayorATest() {
+//        CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().conValorProducto(50000000);
+//        BasePrueba.assertThrows(compraTestDataBuilder::build, ExcepcionValorInvalido.class, "El valor del producto no puede ser menor a 1 ni mayor a 5000000");
+//    }
 
     @Test
     public void validarCiudadCampoAlfanumericoTest() {
@@ -68,10 +68,10 @@ public class CompraTest {
         BasePrueba.assertThrows(compraTestDataBuilder::build, ExcepcionValorInvalido.class, "El campo ciudad debe ser alfanumérico");
     }
 
-    @Test
-    public void validarCodigoProductoCampoAlfanumericoTest() {
-        CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().conCodigoProducto("$125GD");
-        BasePrueba.assertThrows(compraTestDataBuilder::build, ExcepcionValorInvalido.class, "El campo codigoProducto debe ser alfanumérico");
-    }
+//    @Test
+//    public void validarCodigoProductoCampoAlfanumericoTest() {
+//        CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().conCodigoProducto("$125GD");
+//        BasePrueba.assertThrows(compraTestDataBuilder::build, ExcepcionValorInvalido.class, "El campo codigoProducto debe ser alfanumérico");
+//    }
 
 }

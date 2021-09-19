@@ -1,0 +1,1 @@
+select * from producto where id = :id

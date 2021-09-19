@@ -12,8 +12,7 @@ public class FabricaCompra {
                 comandoCompra.getIdentificadorUsuario(),
                 comandoCompra.getDireccion(),
                 comandoCompra.getCiudad(),
-                comandoCompra.getCodigoProducto(),
-                comandoCompra.getValorProducto(),
+                comandoCompra.getProductoId(),
                 comandoCompra.getTipoUsuario());
     }
 

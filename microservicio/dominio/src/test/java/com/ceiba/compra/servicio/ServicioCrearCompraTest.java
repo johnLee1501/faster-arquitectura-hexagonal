@@ -5,9 +5,8 @@ import com.ceiba.compra.modelo.entidad.Compra;
 import com.ceiba.compra.puerto.repositorio.RepositorioCompra;
 import com.ceiba.compra.servicio.testdatabuilder.CompraTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionCiudadNoRegistrada;
-import com.ceiba.dominio.excepcion.ExcepcionLongitudValor;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
-import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
+import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -22,7 +21,9 @@ public class ServicioCrearCompraTest {
         LocalDate fechaEntrega = sumarDiasSinFinesDeSemana(2);
         Compra compra = new CompraTestDataBuilder().conTipoUsuario(3).build();
         RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);
-        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra);
+        RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
+        Mockito.when(repositorioProducto.existeId(Mockito.anyLong())).thenReturn(true);
+        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra, repositorioProducto);
         // act
         servicioCrearCompra.ejecutar(compra);
         // assert
@@ -32,9 +33,12 @@ public class ServicioCrearCompraTest {
     @Test
     public void validarFechaEntregaComprasMayoresACientoCincuentaMilSinContarFindeSemanaTest() {
         LocalDate fechaEntrega = sumarDiasSinFinesDeSemana(2);
-        Compra compra = new CompraTestDataBuilder().conValorProducto(160000).build();
+        Compra compra = new CompraTestDataBuilder().build();
         RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);
-        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra);
+        RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
+        Mockito.when(repositorioProducto.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioProducto.obtenerPrecioProducto(Mockito.anyLong())).thenReturn(180000);
+        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra, repositorioProducto);
         // act
         servicioCrearCompra.ejecutar(compra);
         // assert
@@ -46,7 +50,10 @@ public class ServicioCrearCompraTest {
         LocalDate fechaEntrega = sumarDiasSinFinesDeSemana(6);
         Compra compra = new CompraTestDataBuilder().conTipoUsuario(2).build();
         RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);
-        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra);
+        RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
+        Mockito.when(repositorioProducto.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioProducto.obtenerPrecioProducto(Mockito.anyLong())).thenReturn(140000);
+        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra, repositorioProducto);
         // act
         servicioCrearCompra.ejecutar(compra);
         // assert
@@ -58,7 +65,10 @@ public class ServicioCrearCompraTest {
         LocalDate fechaEntrega = sumarDiasSinFinesDeSemana(10);
         Compra compra = new CompraTestDataBuilder().conTipoUsuario(1).build();
         RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);
-        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra);
+        RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
+        Mockito.when(repositorioProducto.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioProducto.obtenerPrecioProducto(Mockito.anyLong())).thenReturn(140000);
+        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra, repositorioProducto);
         // act
         servicioCrearCompra.ejecutar(compra);
         // assert
@@ -69,7 +79,9 @@ public class ServicioCrearCompraTest {
     public void validarCiudadNoRegistradaEnElSistemaTest() {
         Compra compra = new CompraTestDataBuilder().conCiudad("Ocaña").build();
         RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);
-        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra);
+        RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
+        Mockito.when(repositorioProducto.existeId(Mockito.anyLong())).thenReturn(true);
+        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra, repositorioProducto);
         // act - assert
         BasePrueba.assertThrows(() -> servicioCrearCompra.ejecutar(compra), ExcepcionCiudadNoRegistrada.class, "Envios no disponibles para esta ciudad");
     }
@@ -78,11 +90,23 @@ public class ServicioCrearCompraTest {
     public void validarTipoDeUsuarioIncorrectoTest() {
         Compra compra = new CompraTestDataBuilder().conTipoUsuario(4).build();
         RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);
-        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra);
+        RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
+        Mockito.when(repositorioProducto.existeId(Mockito.anyLong())).thenReturn(true);
+        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra, repositorioProducto);
         // act - assert
         BasePrueba.assertThrows(() -> servicioCrearCompra.ejecutar(compra), ExcepcionValorInvalido.class, "El tipo de usuario no está permitido");
     }
 
+    @Test
+    public void validarProductoNoRegistradoEnElSistemaTest() {
+        Compra compra = new CompraTestDataBuilder().build();
+        RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);
+        RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
+        Mockito.when(repositorioProducto.existeId(Mockito.anyLong())).thenReturn(false);
+        ServicioCrearCompra servicioCrearCompra = new ServicioCrearCompra(repositorioCompra, repositorioProducto);
+        // act - assert
+        BasePrueba.assertThrows(() -> servicioCrearCompra.ejecutar(compra), ExcepcionCiudadNoRegistrada.class, "El producto no se encuentra registrado en el sistema");
+    }
 
     private LocalDate sumarDiasSinFinesDeSemana(int dias) {
         LocalDate fechaActual = LocalDate.now();

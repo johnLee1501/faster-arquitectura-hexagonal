@@ -1,0 +1,1 @@
+insert into producto (codigo_producto, nombre,valor_producto) values (:codigoProducto, :nombre, :valorProducto)

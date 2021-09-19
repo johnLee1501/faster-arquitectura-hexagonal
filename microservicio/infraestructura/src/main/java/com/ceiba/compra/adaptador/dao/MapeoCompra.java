@@ -18,13 +18,12 @@ public class MapeoCompra implements RowMapper<DtoCompra>, MapperResult {
         Long identificadorUsuario = resultSet.getLong("identificador_usuario");
         String direccion = resultSet.getString("direccion");
         String ciudad = resultSet.getString("ciudad");
-        String codigoProducto = resultSet.getString("codigo_producto");
-        int valorProducto = resultSet.getInt("valor_producto");
+        int productoId = resultSet.getInt("producto_id");
         int tipoUsuario = resultSet.getInt("tipo_usuario");
         LocalDate fechaCompra = extraerLocalDate(resultSet, "fecha_compra");
         LocalDate fechaEntrega = extraerLocalDate(resultSet, "fecha_entrega");
 
-        return new DtoCompra(id, identificadorUsuario, direccion, ciudad, codigoProducto, valorProducto, tipoUsuario, fechaCompra, fechaEntrega);
+        return new DtoCompra(id, identificadorUsuario, direccion, ciudad,productoId, tipoUsuario, fechaCompra, fechaEntrega);
     }
 
 }

@@ -11,8 +11,7 @@ public class CompraTestDataBuilder {
     private Long identificadorUsuario;
     private String direccion;
     private String ciudad;
-    private String codigoProducto;
-    private int valorProducto;
+    private Long productoId;
     private int tipoUsuario;
     private LocalDate fechaCompra;
     private LocalDate fechaEntrega;
@@ -22,8 +21,7 @@ public class CompraTestDataBuilder {
         identificadorUsuario = 1091677862L;
         direccion = "Calle 4 #25b32";
         ciudad = "Bogotá";
-        codigoProducto = "25L8G4";
-        valorProducto = 100000;
+        productoId = 1L;
         tipoUsuario = 1;
         fechaCompra = LocalDate.now();
     }
@@ -32,7 +30,10 @@ public class CompraTestDataBuilder {
         this.identificadorUsuario = null;
         return this;
     }
-
+    public CompraTestDataBuilder sinProductoId() {
+        this.productoId = null;
+        return this;
+    }
     public CompraTestDataBuilder sinDireccion() {
         this.direccion = null;
         return this;
@@ -40,11 +41,6 @@ public class CompraTestDataBuilder {
 
     public CompraTestDataBuilder sinCiudad() {
         this.ciudad = null;
-        return this;
-    }
-
-    public CompraTestDataBuilder sinCodigoProducto() {
-        this.codigoProducto = null;
         return this;
     }
 
@@ -63,15 +59,6 @@ public class CompraTestDataBuilder {
         return this;
     }
 
-    public CompraTestDataBuilder conCodigoProducto(String codigoProducto) {
-        this.codigoProducto = codigoProducto;
-        return this;
-    }
-
-    public CompraTestDataBuilder conValorProducto(int valorProducto) {
-        this.valorProducto = valorProducto;
-        return this;
-    }
 
     public CompraTestDataBuilder conTipoUsuario(int tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
@@ -84,8 +71,7 @@ public class CompraTestDataBuilder {
                 identificadorUsuario,
                 direccion,
                 ciudad,
-                codigoProducto,
-                valorProducto,
+                productoId,
                 tipoUsuario);
     }
 }

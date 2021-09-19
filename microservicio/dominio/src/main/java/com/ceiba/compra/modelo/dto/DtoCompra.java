@@ -12,8 +12,7 @@ public class DtoCompra {
     private Long identificadorUsuario;
     private String direccion;
     private String ciudad;
-    private String codigoProducto;
-    private int valorProducto;
+    private int productoId;
     private int tipoUsuario;
     private LocalDate fechaCompra;
     private LocalDate fechaEntrega;

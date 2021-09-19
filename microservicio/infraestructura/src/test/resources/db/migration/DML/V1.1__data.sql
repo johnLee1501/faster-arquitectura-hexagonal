@@ -1,1 +1,1 @@
-insert into compra (identificador_usuario, direccion, ciudad, codigo_producto, valor_producto, tipo_usuario, fecha_compra, fecha_entrega) values (123456789, 'Calle 4 N9', 'Bogotá', 'TLD025', 250000, 1, now(), '2021-09-15')
+insert into compra (identificador_usuario, direccion, ciudad, producto_id, tipo_usuario, fecha_compra, fecha_entrega) values (123456789, 'Calle 4 N9', 'Bogotá', 1, 1, now(), '2021-09-15')

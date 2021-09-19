@@ -12,7 +12,6 @@ public class ComandoCompra {
     private Long identificadorUsuario;
     private String direccion;
     private String ciudad;
-    private String codigoProducto;
-    private int valorProducto;
+    private Long productoId;
     private int tipoUsuario;
 }

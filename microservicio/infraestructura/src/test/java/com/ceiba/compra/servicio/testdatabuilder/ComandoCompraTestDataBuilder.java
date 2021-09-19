@@ -11,8 +11,7 @@ public class ComandoCompraTestDataBuilder {
     private Long identificadorUsuario;
     private String direccion;
     private String ciudad;
-    private String codigoProducto;
-    private int valorProducto;
+    private Long productoId;
     private int tipoUsuario;
     private LocalDate fechaCompra;
     private LocalDate fechaEntrega;
@@ -21,8 +20,7 @@ public class ComandoCompraTestDataBuilder {
         identificadorUsuario = 123456789L;
         direccion = "Calle 4 #25b32";
         ciudad = "Bogotá";
-        codigoProducto = "25L8G4";
-        valorProducto = 100000;
+        productoId = 1L;
         tipoUsuario = 1;
         fechaCompra = LocalDate.now();
     }
@@ -32,8 +30,7 @@ public class ComandoCompraTestDataBuilder {
                 identificadorUsuario,
                 direccion,
                 ciudad,
-                codigoProducto,
-                valorProducto,
+                productoId,
                 tipoUsuario);
     }
 }
