@@ -29,10 +29,6 @@ public class Producto {
         this.valorProducto = valorProducto;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public String getCodigoProducto() {
         return codigoProducto;
     }
@@ -41,7 +37,4 @@ public class Producto {
         return nombre;
     }
 
-    public int getValorProducto() {
-        return valorProducto;
-    }
 }

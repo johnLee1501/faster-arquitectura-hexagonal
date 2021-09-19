@@ -48,18 +48,6 @@ public class Compra {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public Long getIdentificadorUsuario() {
-        return identificadorUsuario;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
     public String getCiudad() {
         return ciudad;
     }
@@ -70,10 +58,6 @@ public class Compra {
 
     public int getTipoUsuario() {
         return tipoUsuario;
-    }
-
-    public LocalDate getFechaCompra() {
-        return fechaCompra;
     }
 
     public LocalDate getFechaEntrega() {
