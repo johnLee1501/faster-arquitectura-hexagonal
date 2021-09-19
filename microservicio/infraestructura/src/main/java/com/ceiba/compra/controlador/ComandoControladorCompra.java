@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/compras")
-@Api(tags = { "Controlador comando compra"})
+@Api(tags = {"Controlador comando compra"})
 public class ComandoControladorCompra {
 
     private final ManejadorCrearCompra manejadorCrearCompra;
-	private final ManejadorEliminarCompra manejadorEliminarCompra;
+    private final ManejadorEliminarCompra manejadorEliminarCompra;
 
     @Autowired
     public ComandoControladorCompra(ManejadorCrearCompra manejadorCrearCompra,
-									ManejadorEliminarCompra manejadorEliminarCompra) {
+                                    ManejadorEliminarCompra manejadorEliminarCompra) {
         this.manejadorCrearCompra = manejadorCrearCompra;
-		this.manejadorEliminarCompra = manejadorEliminarCompra;
+        this.manejadorEliminarCompra = manejadorEliminarCompra;
 
     }
 
@@ -31,10 +31,10 @@ public class ComandoControladorCompra {
         return manejadorCrearCompra.ejecutar(comandoCompra);
     }
 
-    @DeleteMapping(value="/{id}")
-	@ApiOperation("Eliminar Compra")
-	public void eliminar(@PathVariable Long id) {
-		manejadorEliminarCompra.ejecutar(id);
-	}
+    @DeleteMapping(value = "/{id}")
+    @ApiOperation("Eliminar Compra")
+    public void eliminar(@PathVariable Long id) {
+        manejadorEliminarCompra.ejecutar(id);
+    }
 
 }

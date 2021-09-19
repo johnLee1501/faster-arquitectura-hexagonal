@@ -23,7 +23,7 @@ public class MapeoCompra implements RowMapper<DtoCompra>, MapperResult {
         LocalDate fechaCompra = extraerLocalDate(resultSet, "fecha_compra");
         LocalDate fechaEntrega = extraerLocalDate(resultSet, "fecha_entrega");
 
-        return new DtoCompra(id, identificadorUsuario, direccion, ciudad,productoId, tipoUsuario, fechaCompra, fechaEntrega);
+        return new DtoCompra(id, identificadorUsuario, direccion, ciudad, productoId, tipoUsuario, fechaCompra, fechaEntrega);
     }
 
 }

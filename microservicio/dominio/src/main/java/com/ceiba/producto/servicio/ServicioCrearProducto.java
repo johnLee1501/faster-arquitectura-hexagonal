@@ -24,13 +24,14 @@ public class ServicioCrearProducto {
 
     private void validarExistenciaPreviaCodigoProducto(Producto producto) {
         boolean existe = this.repositorioProducto.existeCodigoProducto(producto.getCodigoProducto());
-        if(existe) {
+        if (existe) {
             throw new ExcepcionDuplicidad(EL_CODIGO_PRODUCTO_EXISTE_EN_EL_SISTEMA);
         }
     }
+
     private void validarExistenciaPreviaNombre(Producto producto) {
         boolean existe = this.repositorioProducto.existe(producto.getNombre());
-        if(existe) {
+        if (existe) {
             throw new ExcepcionDuplicidad(EL_NOMBRE_PRODUCTO_EXISTE_EN_EL_SISTEMA);
         }
     }

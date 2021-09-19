@@ -17,7 +17,6 @@ public class Compra {
     private static final String CIUDAD_SOLO_ALFANUMERICO = "El campo ciudad debe ser alfanumérico";
 
 
-
     private Long id;
     private Long identificadorUsuario;
     private String direccion;

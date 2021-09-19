@@ -8,6 +8,7 @@ public interface DaoCompra {
 
     /**
      * Permite listar usuarios
+     *
      * @return los usuarios
      */
     List<DtoCompra> listarPorUsuario(Long identificadorUsuario);

@@ -8,12 +8,14 @@ public interface DaoProducto {
 
     /**
      * Permite listar productos
+     *
      * @return los productos
      */
     List<DtoProducto> listar();
 
     /**
      * Si un producto existe obtenerlo por Id
+     *
      * @param id
      * @return
      */

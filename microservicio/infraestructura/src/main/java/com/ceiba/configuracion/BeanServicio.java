@@ -3,7 +3,6 @@ package com.ceiba.configuracion;
 import com.ceiba.compra.puerto.repositorio.RepositorioCompra;
 import com.ceiba.compra.servicio.ServicioCrearCompra;
 import com.ceiba.compra.servicio.ServicioEliminarCompra;
-import com.ceiba.producto.puerto.dao.DaoProducto;
 import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 import com.ceiba.producto.servicio.ServicioCrearProducto;
 import com.ceiba.producto.servicio.ServicioEliminarProducto;

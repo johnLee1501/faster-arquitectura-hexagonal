@@ -14,10 +14,10 @@ public class DaoProductoMysql implements DaoProducto {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
-    @SqlStatement(namespace="producto", value="listar")
+    @SqlStatement(namespace = "producto", value = "listar")
     private static String sqlListar;
 
-    @SqlStatement(namespace="producto", value="obtenerPorId")
+    @SqlStatement(namespace = "producto", value = "obtenerPorId")
     private static String sqlObtenerPorId;
 
     public DaoProductoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {

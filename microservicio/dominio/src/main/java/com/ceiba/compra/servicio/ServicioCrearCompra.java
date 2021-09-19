@@ -4,7 +4,6 @@ import com.ceiba.compra.modelo.entidad.Compra;
 import com.ceiba.compra.puerto.repositorio.RepositorioCompra;
 import com.ceiba.dominio.excepcion.ExcepcionCiudadNoRegistrada;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
-import com.ceiba.producto.puerto.dao.DaoProducto;
 import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 
 import java.time.DayOfWeek;
@@ -30,6 +29,7 @@ public class ServicioCrearCompra {
 
     private final RepositorioCompra repositorioCompra;
     private final RepositorioProducto repositorioProducto;
+
     public ServicioCrearCompra(RepositorioCompra repositorioCompra, RepositorioProducto repositorioProducto) {
         this.repositorioCompra = repositorioCompra;
         this.repositorioProducto = repositorioProducto;
