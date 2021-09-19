@@ -1,17 +1,12 @@
 package com.ceiba.producto.modelo.entidad;
 
 
-import lombok.Getter;
-
 import static com.ceiba.dominio.ValidadorArgumento.*;
 
-@Getter
 public class Producto {
 
     private static final String SE_DEBE_INGRESAR_CODIGO_DEL_PRODUCTO = "Se debe ingresar el código del producto";
     private static final String SE_DEBE_INGRESAR_NOMBRE_PRODUCTO = "Se debe ingresar el nombre del producto";
-    private static final String SE_DEBE_INGRESAR_VALOR_PRODUCTO = "Se debe ingresar el valor del producto";
-    private static final String IDENTIFICACION_USUARIO_LONGITUD = "La identificación del usuario debe tener una longitud de entre 6 y 10 dígitos";
     private static final String CAMPO_LONGITUD_MAXIMA = "La longitud de el campo %s no puede superar los %s caracteres";
     private static final String VALOR_PRODUCTO_MIN_MAX = "El valor del producto no puede ser menor a %s ni mayor a %s";
     private static final String CODIGO_PRODUCTO_SOLO_ALFANUMERICO = "El campo codigoProducto debe ser alfanumérico";
@@ -34,4 +29,19 @@ public class Producto {
         this.valorProducto = valorProducto;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getCodigoProducto() {
+        return codigoProducto;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getValorProducto() {
+        return valorProducto;
+    }
 }
