@@ -22,3 +22,17 @@ CREATE TABLE compra (
   fecha_entrega DATETIME NULL,
   PRIMARY KEY (id),
   foreign key (producto_id) references producto (id));
+
+CREATE TABLE ciudad (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(45) NULL,
+  PRIMARY KEY (id));
+
+insert into ciudad (nombre) values ('Bogotá');
+insert into ciudad (nombre) values ('Medellín');
+insert into ciudad (nombre) values ('Cali');
+insert into ciudad (nombre) values ('Barranquilla');
+insert into ciudad (nombre) values ('Cartagena de Indias');
+insert into ciudad (nombre) values ('Cúcuta');
+insert into ciudad (nombre) values ('Soledad');
+insert into ciudad (nombre) values ('Ibagué');

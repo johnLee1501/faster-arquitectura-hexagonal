@@ -1,5 +1,6 @@
 package com.ceiba.compra.servicio;
 
+import com.ceiba.ciudad.puerto.dao.DaoCiudad;
 import com.ceiba.compra.modelo.entidad.Compra;
 import com.ceiba.compra.puerto.repositorio.RepositorioCompra;
 import com.ceiba.dominio.excepcion.ExcepcionCiudadNoRegistrada;
@@ -25,14 +26,15 @@ public class ServicioCrearCompra {
     private static final String CIUDAD_NO_REGISTRADA = "Envios no disponibles para esta ciudad";
     private static final String PRODUCTO_NO_REGISTRADO = "El producto no se encuentra registrado en el sistema";
     private static final String TIPO_USUARIO_NO_PERMITIDO = "El tipo de usuario no está permitido";
-    List<String> ciudades = new ArrayList<>(Arrays.asList("Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena de Indias", "Cúcuta", "Soledad", "Ibagué"));
 
     private final RepositorioCompra repositorioCompra;
     private final RepositorioProducto repositorioProducto;
+    private final DaoCiudad daoCiudad;
 
-    public ServicioCrearCompra(RepositorioCompra repositorioCompra, RepositorioProducto repositorioProducto) {
+    public ServicioCrearCompra(RepositorioCompra repositorioCompra, RepositorioProducto repositorioProducto, DaoCiudad daoCiudad) {
         this.repositorioCompra = repositorioCompra;
         this.repositorioProducto = repositorioProducto;
+        this.daoCiudad = daoCiudad;
     }
 
     public Long ejecutar(Compra compra) {
@@ -46,7 +48,7 @@ public class ServicioCrearCompra {
     }
 
     private void esCiudadValida(String ciudad) {
-        boolean existe = ciudades.contains(ciudad);
+        boolean existe = daoCiudad.existe(ciudad);
         if (!existe) {
             throw new ExcepcionCiudadNoRegistrada(CIUDAD_NO_REGISTRADA);
         }

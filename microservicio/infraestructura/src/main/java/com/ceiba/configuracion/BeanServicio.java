@@ -1,5 +1,6 @@
 package com.ceiba.configuracion;
 
+import com.ceiba.ciudad.puerto.dao.DaoCiudad;
 import com.ceiba.compra.puerto.repositorio.RepositorioCompra;
 import com.ceiba.compra.servicio.ServicioCrearCompra;
 import com.ceiba.compra.servicio.ServicioEliminarCompra;
@@ -23,8 +24,8 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioCrearCompra servicioCrearCompra(RepositorioCompra repositorioCompra, RepositorioProducto repositorioProducto) {
-        return new ServicioCrearCompra(repositorioCompra, repositorioProducto);
+    public ServicioCrearCompra servicioCrearCompra(RepositorioCompra repositorioCompra, RepositorioProducto repositorioProducto, DaoCiudad daoCiudad) {
+        return new ServicioCrearCompra(repositorioCompra, repositorioProducto, daoCiudad);
     }
 
     @Bean
