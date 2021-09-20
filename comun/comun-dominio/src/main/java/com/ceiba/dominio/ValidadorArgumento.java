@@ -89,7 +89,7 @@ public class ValidadorArgumento {
     }
 
     public static void validarAlfanumerico(String campo, String mensaje) {
-        String regex = "^[a-zA-ZÀ-ÿ\\u00f1\\u00d1\\d]+$";
+        String regex = "^[a-zA-ZÀ-ÿ\\s\\u00f1\\u00d1\\d]+$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(campo);
 
