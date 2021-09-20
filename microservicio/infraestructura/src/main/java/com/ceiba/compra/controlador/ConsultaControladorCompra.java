@@ -1,13 +1,11 @@
 package com.ceiba.compra.controlador;
 
 import com.ceiba.compra.consulta.ManejadorListarCompras;
+import com.ceiba.compra.consulta.ManejadorListarComprasUsuario;
 import com.ceiba.compra.modelo.dto.DtoCompra;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,15 +14,24 @@ import java.util.List;
 @Api(tags = {"Controlador consulta compra"})
 public class ConsultaControladorCompra {
 
+    private final ManejadorListarComprasUsuario manejadorListarComprasUsuario;
     private final ManejadorListarCompras manejadorListarCompras;
-
-    public ConsultaControladorCompra(ManejadorListarCompras manejadorListarCompras) {
+    public ConsultaControladorCompra(ManejadorListarComprasUsuario manejadorListarComprasUsuario, ManejadorListarCompras manejadorListarCompras) {
+        this.manejadorListarComprasUsuario = manejadorListarComprasUsuario;
         this.manejadorListarCompras = manejadorListarCompras;
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/{identificadorUsuario}")
-    @ApiOperation("Consultar Prestamo")
-    public List<DtoCompra> listar(@PathVariable Long identificadorUsuario) {
-        return this.manejadorListarCompras.ejecutar(identificadorUsuario);
+    @ApiOperation("Consultar Compras Usuario")
+    public List<DtoCompra> listarPorIdentificacion(@PathVariable Long identificadorUsuario) {
+        return this.manejadorListarComprasUsuario.ejecutar(identificadorUsuario);
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping
+    @ApiOperation("Consultar Compras")
+    public List<DtoCompra> listar() {
+        return this.manejadorListarCompras.ejecutar();
+    }
+
 }

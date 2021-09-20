@@ -24,12 +24,14 @@ public class ComandoControladorProducto {
         this.manejadorEliminarProducto = manejadorEliminarProducto;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
     @ApiOperation("Crear Producto")
     public ComandoRespuesta<Long> crear(@RequestBody ComandoProducto comandoProducto) {
         return manejadorCrearProducto.ejecutar(comandoProducto);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping(value = "/{id}")
     @ApiOperation("Eliminar Producto")
     public void eliminar(@PathVariable Long id) {

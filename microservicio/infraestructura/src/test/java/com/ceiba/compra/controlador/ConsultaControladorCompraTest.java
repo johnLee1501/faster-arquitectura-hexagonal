@@ -25,19 +25,32 @@ public class ConsultaControladorCompraTest {
     private MockMvc mocMvc;
 
     @Test
-    public void listar() throws Exception {
+    public void listarPorUsuario() throws Exception {
 
         // arrange
-        Long identificadorUsuario = 123456789L;
+        Long identificadorUsuario = 987654321L;
 
         // act - assert
         mocMvc.perform(get("/compras/{identificadorUsuario}", identificadorUsuario)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].id", is(1)))
+                .andExpect(jsonPath("$[0].id", is(2)))
+                .andExpect(jsonPath("$[0].ciudad", is("Medellín")))
                 .andExpect(jsonPath("$[0].productoId", is(1)));
     }
+    @Test
+    public void listar() throws Exception {
 
+        // arrange
 
+        // act - assert
+        mocMvc.perform(get("/compras")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(2)))
+                .andExpect(jsonPath("$[0].id", is(1)))
+                .andExpect(jsonPath("$[0].ciudad", is("Bogotá")))
+                .andExpect(jsonPath("$[0].productoId", is(1)));
+    }
 }

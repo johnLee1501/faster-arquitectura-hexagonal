@@ -45,12 +45,12 @@ public class ComandoControladorCompraTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(compra)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 2}"))
+                .andExpect(content().json("{'valor': 3}"))
                  .andDo(
                         resultValorar -> {
-                            DtoCompra compra1 = daoCompra.obtenerPorId(2L);
-                            assertEquals(1L, compra1.getProductoId());
-                            assertEquals(1, compra1.getProductoId());
+                            DtoCompra compra1 = daoCompra.obtenerPorId(3L);
+                            assertEquals("FGH12D", compra1.getCodigoProducto());
+                            assertEquals(1, compra1.getTipoUsuario());
                             assertEquals("Bogotá", compra1.getCiudad());
                         }
                 );
@@ -60,7 +60,7 @@ public class ComandoControladorCompraTest {
     @Test
     public void eliminar() throws Exception {
         // arrange
-        Long id = 2L;
+        Long id = 3L;
 
         // act - assert
         mocMvc.perform(delete("/compras/{id}", id)
@@ -69,7 +69,7 @@ public class ComandoControladorCompraTest {
                 .andExpect(status().isOk())
                 .andDo(
                         resultValorar -> {
-                            assertThrows(() -> daoCompra.obtenerPorId(2L), IndexOutOfBoundsException.class, "Index: 0, Size: 0");
+                            assertThrows(() -> daoCompra.obtenerPorId(3L), IndexOutOfBoundsException.class, "Index: 0, Size: 0");
                         }
                 );
     }

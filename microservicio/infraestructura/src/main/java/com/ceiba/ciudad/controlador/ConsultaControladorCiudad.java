@@ -4,6 +4,7 @@ import com.ceiba.ciudad.consulta.ManejadorListarCiudades;
 import com.ceiba.ciudad.modelo.dto.DtoCiudad;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +21,7 @@ public class ConsultaControladorCiudad {
     public ConsultaControladorCiudad(ManejadorListarCiudades manejadorListarCiudades) {
         this.manejadorListarCiudades = manejadorListarCiudades;
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     @ApiOperation("Listar Ciudads")
     public List<DtoCiudad> listar() {

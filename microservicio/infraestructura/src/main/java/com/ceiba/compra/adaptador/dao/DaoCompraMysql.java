@@ -14,6 +14,9 @@ public class DaoCompraMysql implements DaoCompra {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
+    @SqlStatement(namespace = "compra", value = "listar")
+    private static String sqlListar;
+
     @SqlStatement(namespace = "compra", value = "listarPorUsuario")
     private static String sqlListarPorUsuario;
 
@@ -29,6 +32,11 @@ public class DaoCompraMysql implements DaoCompra {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("identificadorUsuario", identificadorUsuario);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPorUsuario, paramSource, new MapeoCompra());
+    }
+
+    @Override
+    public List<DtoCompra> listar() {
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, new MapeoCompra());
     }
 
     @Override

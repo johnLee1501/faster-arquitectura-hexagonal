@@ -14,6 +14,12 @@ public interface DaoCompra {
     List<DtoCompra> listarPorUsuario(Long identificadorUsuario);
 
     /**
+     * Permite listar usuarios
+     *
+     * @return los usuarios
+     */
+    List<DtoCompra> listar();
+    /**
      * Si una compra existe obtenerlo por Id
      *
      * @param id
