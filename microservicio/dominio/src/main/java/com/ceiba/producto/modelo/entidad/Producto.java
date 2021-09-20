@@ -22,7 +22,7 @@ public class Producto {
         validarObligatorio(nombre, SE_DEBE_INGRESAR_NOMBRE_PRODUCTO);
         validadLongitud(codigoProducto, 1, 6, String.format(CAMPO_LONGITUD_MAXIMA, "codigoProducto", 6));
         validarMenorMayor(valorProducto, 1L, 5000000L, String.format(VALOR_PRODUCTO_MIN_MAX, 1, 5000000));
-        validarAlfanumerico(codigoProducto, CODIGO_PRODUCTO_SOLO_ALFANUMERICO);
+        validarAlfanumericoSinEspacios(codigoProducto, CODIGO_PRODUCTO_SOLO_ALFANUMERICO);
 
         this.codigoProducto = codigoProducto;
         this.nombre = nombre;

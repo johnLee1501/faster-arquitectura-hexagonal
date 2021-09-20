@@ -98,6 +98,16 @@ public class ValidadorArgumento {
         }
     }
 
+    public static void validarAlfanumericoSinEspacios(String campo, String mensaje) {
+        String regex = "^[a-zA-ZÀ-ÿ\\u00f1\\u00d1\\d]+$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(campo);
+
+        if (!matcher.matches()) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+
     public static <E extends Enum<E>> E validarValido(String valor, Class<E> enumAObtener, String mensaje) {
         E enumObtenido = null;
         if (null != valor) {
