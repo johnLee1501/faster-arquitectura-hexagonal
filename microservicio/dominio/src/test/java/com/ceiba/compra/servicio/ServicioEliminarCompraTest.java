@@ -13,6 +13,7 @@ public class ServicioEliminarCompraTest {
         RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);
         ServicioEliminarCompra servicioEliminarCompra = new ServicioEliminarCompra(repositorioCompra);
         Mockito.when(repositorioCompra.existeHoy(Mockito.anyLong(), Mockito.any())).thenReturn(false);
+        Mockito.when(repositorioCompra.existe(Mockito.anyLong())).thenReturn(true);
         // act - assert
         BasePrueba.assertThrows(() -> servicioEliminarCompra.ejecutar(1L), ExcepcionCompraNoRealizadaHoy.class, "Solo se pueden cancelar las compras realizadas el día de hoy");
     }

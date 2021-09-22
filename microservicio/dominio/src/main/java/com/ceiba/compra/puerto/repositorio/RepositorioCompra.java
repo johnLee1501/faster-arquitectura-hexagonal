@@ -21,6 +21,14 @@ public interface RepositorioCompra {
     void eliminar(Long id);
 
     /**
+     * Permite validar si existe un compra realizada dado un id
+     *
+     * @param id
+     * @return si existe o no
+     */
+    boolean existe(Long id);
+
+    /**
      * Permite validar si existe un compra realizada el día de hoy
      *
      * @param id

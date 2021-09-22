@@ -20,6 +20,9 @@ public class RepositorioCompraMysql implements RepositorioCompra {
     @SqlStatement(namespace = "compra", value = "eliminar")
     private static String sqlEliminar;
 
+    @SqlStatement(namespace = "compra", value = "existe")
+    private static String sqlExiste;
+
     @SqlStatement(namespace = "compra", value = "existeHoy")
     private static String sqlExisteHoy;
 
@@ -42,6 +45,14 @@ public class RepositorioCompraMysql implements RepositorioCompra {
         paramSource.addValue("id", id);
 
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
+    }
+
+    @Override
+    public boolean existe(Long id) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id", id);
+
+        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class));
     }
 
     @Override
