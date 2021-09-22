@@ -23,6 +23,9 @@ public class RepositorioCompraMysql implements RepositorioCompra {
     @SqlStatement(namespace = "compra", value = "existeHoy")
     private static String sqlExisteHoy;
 
+    @SqlStatement(namespace = "compra", value = "existeCompra")
+    private static String sqlExisteCompra;
+
 
     public RepositorioCompraMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -48,6 +51,14 @@ public class RepositorioCompraMysql implements RepositorioCompra {
         paramSource.addValue("fecha", fecha);
 
         return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteHoy, paramSource, Boolean.class));
+    }
+
+    @Override
+    public boolean existeCompra(Long id) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("producto_id", id);
+
+        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteCompra, paramSource, Boolean.class));
     }
 
 

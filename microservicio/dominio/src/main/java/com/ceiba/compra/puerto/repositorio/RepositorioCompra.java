@@ -28,4 +28,12 @@ public interface RepositorioCompra {
      */
     boolean existeHoy(Long id, LocalDate fecha);
 
+    /**
+     * Permite validar si existe un compra realizada para un producto
+     *
+     * @param id
+     * @return si existe o no
+     */
+    boolean existeCompra(Long id);
+
 }

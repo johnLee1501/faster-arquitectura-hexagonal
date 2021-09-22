@@ -19,8 +19,8 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioEliminarProducto servicioEliminarProducto(RepositorioProducto repositorioProducto) {
-        return new ServicioEliminarProducto(repositorioProducto);
+    public ServicioEliminarProducto servicioEliminarProducto(RepositorioProducto repositorioProducto, RepositorioCompra repositorioCompra) {
+        return new ServicioEliminarProducto(repositorioProducto, repositorioCompra);
     }
 
     @Bean
