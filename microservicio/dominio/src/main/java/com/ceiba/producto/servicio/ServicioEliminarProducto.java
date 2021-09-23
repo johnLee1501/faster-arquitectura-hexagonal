@@ -7,7 +7,7 @@ import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 
 public class ServicioEliminarProducto {
     private static final String PRODUCTO_COMPRADO_NO_ELIMINAR = "El producto ha sido comprado, elimine la compra primero";
-    private static final String PRODUCTO_NO_EXISTE = "El producto ha eliminar no existe";
+    private static final String PRODUCTO_NO_EXISTE = "El producto a eliminar no existe";
 
     private final RepositorioProducto repositorioProducto;
     private final RepositorioCompra repositorioCompra;
@@ -31,7 +31,7 @@ public class ServicioEliminarProducto {
     }
 
     private void validarProductoExiste(Long id) {
-        boolean existe = this.repositorioCompra.existe(id);
+        boolean existe = this.repositorioProducto.existeId(id);
         if (!existe) {
             throw new ExcepcionProductoNoExiste(PRODUCTO_NO_EXISTE);
         }

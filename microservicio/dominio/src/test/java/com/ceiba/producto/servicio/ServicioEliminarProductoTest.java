@@ -16,7 +16,7 @@ public class ServicioEliminarProductoTest {
     public void validarEliminarProductoTest() {
         RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
         RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);
-        Mockito.when(repositorioCompra.existe(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioProducto.existeId(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioCompra.existeCompra(Mockito.anyLong())).thenReturn(false);
         Mockito.doNothing().when(repositorioProducto).eliminar(Mockito.anyLong());
         ServicioEliminarProducto servicioEliminarProducto = new ServicioEliminarProducto(repositorioProducto, repositorioCompra);
@@ -28,17 +28,17 @@ public class ServicioEliminarProductoTest {
     public void validarEliminarProductoNoExisteTest() {
         RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
         RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);
-        Mockito.when(repositorioCompra.existe(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioProducto.existeId(Mockito.anyLong())).thenReturn(false);
         ServicioEliminarProducto servicioEliminarProducto = new ServicioEliminarProducto(repositorioProducto, repositorioCompra);
         // act - assert
-        BasePrueba.assertThrows(() -> servicioEliminarProducto.ejecutar(1L), ExcepcionProductoNoExiste.class, "El producto ha eliminar no existe");
+        BasePrueba.assertThrows(() -> servicioEliminarProducto.ejecutar(1L), ExcepcionProductoNoExiste.class, "El producto a eliminar no existe");
 
     }
     @Test
     public void validarEliminarProductoCompradoTest() {
         RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
         RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);
-        Mockito.when(repositorioCompra.existe(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioProducto.existeId(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioCompra.existeCompra(Mockito.anyLong())).thenReturn(true);
         ServicioEliminarProducto servicioEliminarProducto = new ServicioEliminarProducto(repositorioProducto, repositorioCompra);
         // act - assert
