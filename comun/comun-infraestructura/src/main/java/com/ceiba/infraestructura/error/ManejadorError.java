@@ -32,6 +32,7 @@ public class ManejadorError extends ResponseEntityExceptionHandler {
         CODIGOS_ESTADO.put(ExcepcionCiudadNoRegistrada.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
         CODIGOS_ESTADO.put(ExcepcionCompraNoRealizadaHoy.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
         CODIGOS_ESTADO.put(ExcepcionProductoComprado.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+        CODIGOS_ESTADO.put(ExcepcionProductoNoExiste.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
 
         
         //en caso de tener otra excepcion matricularla aca

@@ -62,7 +62,7 @@ public class ComandoControladorProductoTest {
     @Test
     public void eliminar() throws Exception {
         // arrange
-        Long id = 4L;
+        Long id = 2L;
 
         // act - assert
         mocMvc.perform(delete("/productos/{id}", id)
@@ -71,7 +71,7 @@ public class ComandoControladorProductoTest {
                 .andExpect(status().isOk())
                 .andDo(
                         resultValorar -> {
-                            assertThrows(() -> daoProducto.obtenerPorId(4L), IndexOutOfBoundsException.class, "Index: 0, Size: 0");
+                            assertThrows(() -> daoProducto.obtenerPorId(2L), IndexOutOfBoundsException.class, "Index: 0, Size: 0");
                         }
                 );
     }
