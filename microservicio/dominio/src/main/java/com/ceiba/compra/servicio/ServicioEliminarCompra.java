@@ -31,8 +31,7 @@ public class ServicioEliminarCompra {
 
     private void validarCompraRealizadaHoy(Long id) {
         boolean existeHoy = this.repositorioCompra.existeHoy(id, LocalDate.now());
-        boolean existe = this.repositorioCompra.existe(id);
-        if (!existeHoy && existe) {
+        if (!existeHoy) {
             throw new ExcepcionCompraNoRealizadaHoy(COMPRA_NO_REALIZADA_HOY);
         }
     }
